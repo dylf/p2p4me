@@ -1,6 +1,15 @@
 [gd_scene format=3 uid="uid://jijqcewhuwtl"]
 
+[ext_resource type="Texture2D" uid="uid://b3a0fxetf6i64" path="res://assets/ground-texture.png" id="1_w7c3h"]
+[ext_resource type="Texture2D" uid="uid://dcisx61fufoaa" path="res://assets/ground-texture-nrm.png" id="2_w8frs"]
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_8tn5n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rd3vj"]
+albedo_texture = ExtResource("1_w7c3h")
+normal_enabled = true
+normal_texture = ExtResource("2_w8frs")
+uv1_scale = Vector3(1000, 1000, 1000)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_6sj1v"]
 
@@ -10,7 +19,12 @@
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1198160265]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, -3.8192267, -0.62147117, 0.41220403)
 mesh = SubResource("PlaneMesh_8tn5n")
+surface_material_override/0 = SubResource("StandardMaterial3D_rd3vj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=55787930]
 shape = SubResource("WorldBoundaryShape3D_6sj1v")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=266544699]
+transform = Transform3D(1, 0, 0, 0, -0.7621145, 0.6474422, 0, -0.6474422, -0.7621145, 0, 164.52496, 0)
