@@ -4,6 +4,11 @@
 [ext_resource type="Script" uid="uid://cbnk8pr2agx5j" path="res://scripts/camera_3d.gd" id="2_g2els"]
 [ext_resource type="Script" uid="uid://bw3wydl3pfgsv" path="res://scripts/spring_arm_pivot.gd" id="2_qhqgy"]
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_qhqgy"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6sj1v"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_6sj1v"]
@@ -13,6 +18,9 @@
 [node name="Player" type="CharacterBody3D" unique_id=2117680931 node_paths=PackedStringArray("camera")]
 script = ExtResource("1_3vyb7")
 camera = NodePath("SpringArmPivot/Camera3D")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=114252508]
+replication_config = SubResource("SceneReplicationConfig_qhqgy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=957421443]
 shape = SubResource("CapsuleShape3D_6sj1v")

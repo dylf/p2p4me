@@ -6,11 +6,9 @@ extends Node3D
 
 @onready var spring_arm := $SpringArm3D
 
-
-func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
 func _unhandled_input(event: InputEvent) -> void:
+	if GameState.in_menu:
+		return
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		rotation.y -= event.relative.x * mouse_sensitivity
 		rotation.y = wrapf(rotation.y, 0.0, TAU)
@@ -21,13 +19,3 @@ func _unhandled_input(event: InputEvent) -> void:
 		spring_arm.spring_length -= 1
 	if event.is_action_pressed("wheel_down"):
 		spring_arm.spring_length +=1
-		
-	if event.is_action_pressed("toggle_mouse_capture"):
-		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
-
-func _process(delta: float) -> void:
-	pass

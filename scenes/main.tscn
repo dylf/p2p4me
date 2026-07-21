@@ -1,14 +1,21 @@
 [gd_scene format=3 uid="uid://dg42hhnsccctv"]
 
 [ext_resource type="PackedScene" uid="uid://dd4tplt2ye7rh" path="res://scenes/player.tscn" id="1_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://dk2v3j1k8srkq" path="res://scenes/menu.tscn" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://jijqcewhuwtl" path="res://scenes/level.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://b0iprm81unmk2" path="res://scripts/multiplayer_spawner.gd" id="4_jyhfs"]
 
 [node name="Main" type="Node" unique_id=1588644929]
 
-[node name="Player" parent="." unique_id=2117680931 instance=ExtResource("1_0wfyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8937156, 0)
+[node name="Menu" parent="." unique_id=630630856 instance=ExtResource("1_jyhfs")]
 
 [node name="Level" parent="." unique_id=1413592913 instance=ExtResource("1_o5qli")]
 
 [node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=1814823673]
 transform = Transform3D(1, 0, 0, 0, 0.0863765, 0.9962626, 0, -0.9962626, 0.08637651, 0, 0.9514833, 0)
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1854688604]
+_spawnable_scenes = PackedStringArray("uid://dd4tplt2ye7rh")
+spawn_path = NodePath("..")
+script = ExtResource("4_jyhfs")
+network_player = ExtResource("1_0wfyh")
