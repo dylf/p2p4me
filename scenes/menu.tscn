@@ -11,18 +11,67 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yqeox")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=104400918]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="MenuItems" type="VBoxContainer" parent="." unique_id=1754434610]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -123.0
+offset_top = -50.5
+offset_right = 123.0
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Host" type="Button" parent="VBoxContainer" unique_id=688670259]
+[node name="MultiplayerButtons" type="VBoxContainer" parent="MenuItems" unique_id=104400918]
+layout_mode = 2
+
+[node name="Host" type="Button" parent="MenuItems/MultiplayerButtons" unique_id=688670259]
 layout_mode = 2
 text = "HOST GAME"
 
-[node name="Join" type="Button" parent="VBoxContainer" unique_id=1206013988]
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuItems/MultiplayerButtons" unique_id=1968520302]
 layout_mode = 2
-text = "JOIN GAME"
 
-[connection signal="pressed" from="VBoxContainer/Host" to="." method="_on_host_pressed"]
-[connection signal="pressed" from="VBoxContainer/Join" to="." method="_on_join_pressed"]
+[node name="IpAddress" type="LineEdit" parent="MenuItems/MultiplayerButtons/HBoxContainer" unique_id=711734056]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "127.0.0.1"
+alignment = 1
+
+[node name="Join" type="Button" parent="MenuItems/MultiplayerButtons/HBoxContainer" unique_id=1206013988]
+layout_mode = 2
+text = "JOIN"
+
+[node name="Quit" type="Button" parent="MenuItems" unique_id=146459889]
+layout_mode = 2
+text = "QUIT GAME"
+
+[node name="ErrorUI" type="HBoxContainer" parent="." unique_id=1242095011]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.0
+offset_top = -15.5
+offset_right = 111.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ErrorMessage" type="Label" parent="ErrorUI" unique_id=1913342372]
+layout_mode = 2
+
+[node name="Okay" type="Button" parent="ErrorUI" unique_id=449130039]
+layout_mode = 2
+text = "OK"
+
+[connection signal="pressed" from="MenuItems/MultiplayerButtons/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="MenuItems/MultiplayerButtons/HBoxContainer/Join" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="ErrorUI/Okay" to="." method="_on_okay_pressed"]
+[connection signal="pressed" from="MenuItems/Quit" to="." method="_on_quit_pressed"]

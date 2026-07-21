@@ -8,10 +8,14 @@ const JUMP_VELOCITY = 4.5
 func _enter_tree() -> void:
 	set_multiplayer_authority(name.to_int())
 
+func _ready() -> void:
+	if is_multiplayer_authority():
+		camera.current = true
+
 func _physics_process(delta: float) -> void:
 	if !is_multiplayer_authority(): return
 	
-	if GameState.in_menu: return
+	if GameState.is_menu() or GameState.is_error(): return
 	
 	# Add the gravity.
 	if not is_on_floor():

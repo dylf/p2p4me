@@ -7,7 +7,7 @@ extends Node3D
 @onready var spring_arm := $SpringArm3D
 
 func _unhandled_input(event: InputEvent) -> void:
-	if GameState.in_menu:
+	if GameState.is_menu():
 		return
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		rotation.y -= event.relative.x * mouse_sensitivity
