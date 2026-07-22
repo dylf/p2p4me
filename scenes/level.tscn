@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://jijqcewhuwtl"]
 
-[ext_resource type="Texture2D" uid="uid://b3a0fxetf6i64" path="res://assets/ground-texture.png" id="1_w7c3h"]
-[ext_resource type="Texture2D" uid="uid://dcisx61fufoaa" path="res://assets/ground-texture-nrm.png" id="2_w8frs"]
+[ext_resource type="Texture2D" uid="uid://b3a0fxetf6i64" path="res://assets/textures/ground-texture.png" id="1_w7c3h"]
+[ext_resource type="Texture2D" uid="uid://dcisx61fufoaa" path="res://assets/textures/ground-texture-nrm.png" id="2_w8frs"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_8tn5n"]
 
