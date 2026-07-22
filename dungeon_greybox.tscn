@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bymvy2ygjkelp"]
+
+[ext_resource type="PackedScene" uid="uid://dxqwoyentlmnl" path="res://assets/levels/dungeon_greybox.glb" id="1_1kff1"]
+
+[node name="dungeon_greybox" unique_id=1742252366 instance=ExtResource("1_1kff1")]

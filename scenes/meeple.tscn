@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://hkh8g0b16j6s"]
+
+[ext_resource type="PackedScene" uid="uid://br8r3byjfsklg" path="res://assets/models/meeple.glb" id="1_v8q0f"]
+
+[node name="meeple" unique_id=186699776 instance=ExtResource("1_v8q0f")]
+
+[node name="Skeleton3D" parent="MeepleRig" parent_id_path=PackedInt32Array(1252972252) index="0" unique_id=363348720]
+bones/1/position = Vector3(0.029999994, 0.8492528, 0)
+bones/3/rotation = Quaternion(0.60197717, 0.48949018, 0.48949018, -0.3980229)
+bones/4/rotation = Quaternion(0.60197717, -0.48949018, -0.48949018, -0.3980229)
+bones/5/rotation = Quaternion(0.98443145, 0.12379909, 0.12379908, -0.0155686)
+bones/6/rotation = Quaternion(0.98443145, -0.12379909, -0.12379908, -0.015568599)

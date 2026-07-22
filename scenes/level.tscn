@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b3a0fxetf6i64" path="res://assets/textures/ground-texture.png" id="1_w7c3h"]
 [ext_resource type="Texture2D" uid="uid://dcisx61fufoaa" path="res://assets/textures/ground-texture-nrm.png" id="2_w8frs"]
+[ext_resource type="AudioStream" uid="uid://dftamhkoukkbg" path="res://assets/audio/ambient_dripping.wav" id="3_w8frs"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_8tn5n"]
 
@@ -19,7 +20,7 @@ uv1_scale = Vector3(1000, 1000, 1000)
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1198160265]
-transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, -3.8192267, -0.62147117, 0.41220403)
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 0, 0, 0)
 mesh = SubResource("PlaneMesh_8tn5n")
 surface_material_override/0 = SubResource("StandardMaterial3D_rd3vj")
 
@@ -28,3 +29,9 @@ shape = SubResource("WorldBoundaryShape3D_6sj1v")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=266544699]
 transform = Transform3D(1, 0, 0, 0, -0.7621145, 0.6474422, 0, -0.6474422, -0.7621145, 0, 164.52496, 0)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1806948509]
+stream = ExtResource("3_w8frs")
+volume_db = -4.697
+autoplay = true
+bus = &"Ambient"

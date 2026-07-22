@@ -1,15 +1,18 @@
 [gd_scene format=3 uid="uid://dd4tplt2ye7rh"]
 
 [ext_resource type="Script" uid="uid://dgwbh2udg3x33" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="PackedScene" uid="uid://hkh8g0b16j6s" path="res://scenes/meeple.tscn" id="2_dqkch"]
 [ext_resource type="Script" uid="uid://cbnk8pr2agx5j" path="res://scripts/camera_3d.gd" id="2_g2els"]
 [ext_resource type="Script" uid="uid://bw3wydl3pfgsv" path="res://scripts/spring_arm_pivot.gd" id="2_qhqgy"]
+[ext_resource type="AudioStream" uid="uid://c25xy5r0qku3p" path="res://assets/audio/footstep.wav" id="5_qlg0r"]
+[ext_resource type="AudioStream" uid="uid://c7hj2rbv2lbis" path="res://assets/audio/jump.wav" id="6_tuyoq"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_qhqgy"]
 properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/replication_mode = 1
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6sj1v"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_dt3vt"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_6sj1v"]
 
@@ -23,9 +26,14 @@ camera = NodePath("SpringArmPivot/Camera3D")
 replication_config = SubResource("SceneReplicationConfig_qhqgy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=957421443]
-shape = SubResource("CapsuleShape3D_6sj1v")
+transform = Transform3D(2.285, 0, 0, 0, 2.285, 0, 0, 0, 2.285, 0, 1.1195025, 0)
+shape = SubResource("SphereShape3D_dt3vt")
+
+[node name="Meeple" parent="." unique_id=186699776 instance=ExtResource("2_dqkch")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.003836006, 0)
 
 [node name="Model" type="MeshInstance3D" parent="." unique_id=1232552230]
+visible = false
 mesh = SubResource("CapsuleMesh_6sj1v")
 
 [node name="SpringArmPivot" type="Node3D" parent="." unique_id=634498334]
@@ -44,3 +52,13 @@ spring_length = 2.0
 script = ExtResource("2_g2els")
 spring_arm = NodePath("../SpringArm3D/SpringPosition")
 lerp_power = 6.0
+
+[node name="FootstepAudio" type="AudioStreamPlayer3D" parent="." unique_id=14742738]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1195025, 0)
+stream = ExtResource("5_qlg0r")
+bus = &"PlayerSFX"
+
+[node name="JumpAudio" type="AudioStreamPlayer3D" parent="." unique_id=2132424577]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1195025, 0)
+stream = ExtResource("6_tuyoq")
+bus = &"PlayerSFX"

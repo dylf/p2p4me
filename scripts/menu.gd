@@ -22,8 +22,11 @@ func _input(event) -> void:
 			_on_okay_pressed()
 		return
 
-	if event.is_action_pressed("ui_cancel") and !visible:
-		show_menu()
+	if event.is_action_pressed("ui_cancel"):
+		if visible and !multiBtn.visible:
+			start_game()
+		elif !visible:
+			show_menu()
 
 func _process(_delta: float) -> void:
 	if !visible and GameState.is_menu():
